@@ -1,0 +1,143 @@
+<div class="position-relative" style="width: 100%; height: 100%">
+    <div class="position-absolute top-0 start-0 w3-bar-block w3-light-grey" style="width: 20%">
+      <div class="container w3-dark-grey">
+        <h2 class="text-center">welcome M</h2>
+      </div>
+      <div class="position-absolute top-10 start-0 d-inline w3-bar-block w3-light-grey" style="width: 100%; height: 100%">
+        <img src="/assets/img/1.jpg" alt="Snow" style="width: 100%" /><br /><br />
+        <ul class="sidebar-nav" style="margin-left: 0">
+          <li>
+            <div class="aligns-items-center my-2">
+              <button style="width: 100%" class="btn-lg text-warning text-center btn btn-dark" (click)="ShowDashboard()">
+                <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
+                Dashboard
+              </button>
+            </div>
+          </li>
+  
+          <li>
+            <div class="aligns-items-center my-2">
+              <button style="width: 100%" class="btn-lg text-warning text-center btn btn-dark"
+                (click)="ShowNotification()">
+                <i class="fa fa-play-circle-o" aria-hidden="true"> </i>
+                Notification
+              </button>
+            </div>
+          </li>
+  
+          <li>
+            <div class="aligns-items-center my-2">
+              <button style="width: 100%" class="text-warning btn-lg text-center btn btn-dark" (click)="ADD_Category()">
+                <i class="fa fa-puzzle-piece" aria-hidden="true"> </i>
+                Add Category
+              </button>
+            </div>
+          </li>
+  
+          <li>
+            <div class="aligns-items-center my-2">
+              <button style="width: 100%" class="btn-lg text-warning text-center btn btn-dark"
+                (click)="Update_category()">
+                <i class="fa fa-puzzle-piece" aria-hidden="true"> </i>
+                Update Category
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="aligns-items-center my-2">
+              <button style="width: 100%" class="btn-lg text-warning text-center btn btn-dark"
+                (click)="Add_Brand()">
+                <i class="fa fa-puzzle-piece" aria-hidden="true"> </i>
+                Add Brand
+              </button>
+            </div>
+          </li>
+  
+          <li>
+            <div class="aligns-items-center my-2">
+              <button style="width: 100%" class="btn-lg text-warning text-center btn btn-dark" (click)="ShowStores()">
+                <i class="fa fa-font" aria-hidden="true"> </i>
+                Stores
+              </button>
+            </div>
+          </li>
+  
+          <li>
+            <div class="aligns-items-center my-2">
+              <button style="width: 100%" class="btn-lg text-warning text-center btn btn-dark"
+                (click)="Update_category()">
+                <i class="fa fa-puzzle-piece" aria-hidden="true"> </i>
+                Update Store
+              </button>
+            </div>
+          </li>
+  
+          <li>
+            <div class="aligns-items-center">
+              <button style="width: 100%" class="btn-lg text-warning text-center btn btn-dark" (click)="ShowProfits()">
+                <i class="fa fa-info-circle" aria-hidden="true"> </i>
+                Profits
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <div style="margin-left: 20%">
+      <div class="w3-container">
+        <h1>Hello There</h1>
+        <p class="fs-1 fw-bolder text-decoration-line-through my-4 text-primary text-center">
+          Do AnyThing but Dont Small Us
+        </p>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <div class="col">
+            <div class="card text-white bg-warning mb-3" style="max-width: 18rem">
+              <div class="card-header fs-4 fw-bolder">Total Profits</div>
+              <div class="card-body">
+                <h5 class="card-title fs-4 fw-bolder">Profits</h5>
+                <p class="card-text text-dark fs-4 fw-bolder">
+                  You Earned: {{ Totals?.TotalProfits }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem">
+              <div class="card-header fs-4 fw-bolder">TotalStores</div>
+              <div class="card-body">
+                <h5 class="card-title fs-4 fw-bolder">Stores</h5>
+                <p class="card-text text-dark fs-4 fw-bolder">
+                  Number of Stors: {{ Totals?.TotalStores }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem">
+              <div class="card-header fs-4 fw-bolder">Total Orders</div>
+              <div class="card-body">
+                <h5 class="card-title fs-4 fw-bolder">Orders</h5>
+                <p class="card-text text-dark fs-4 fw-bolder">
+                  Number of Oreders: {{ Totals?.TotalOrders }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem">
+              <div class="card-header fs-4 fw-bolder">Total Categories</div>
+              <div class="card-body">
+                <h5 class="card-title fs-4 fw-bolder">Category</h5>
+                <p class="card-text text-dark fs-4 fw-bolder">
+                  Number Of Categories: {{ Totals?.TotalCategories }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

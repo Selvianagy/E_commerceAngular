@@ -1,0 +1,12 @@
+<div class="col">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem">
+      <img src={{Notification?.Image}} class="card-img-top" alt="...">
+      <h2 class="card-header fs-4 fw-bolder">{{Notification?.VendorName}} - PhoneNum:{{Notification?.PhoneNumber}}</h2>
+      <div class="card-body">
+        <h5 class="card-title">Store Name :{{Notification?.StoreName}} with Email: {{Notification?.Email}} </h5>
+        <p class="card-text">{{Notification?.StoreDescription}}</p>
+        <p class="card-text">{{Notification?.StoreCountry}} - {{Notification?.StoreCity}} - {{Notification?.StoreStreet}}</p>
+      </div>
+      <button class="btn btn-success" (click)="CinfirmVendor()">Confirm</button>
+    </div>
+  </div>

@@ -1,0 +1,259 @@
+<div *ngIf="user == ''">
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+      <div class="row bg-secondary py-1 px-xl-5" style="    height: 50px;">
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="d-inline-flex align-items-center h-100">
+            <a class="text-body mr-3" routerLink="/about">About</a>
+            <a class="text-body mr-3" routerLink="/contactUs">Contact</a>
+            <a class="text-body mr-3" routerLink="/faq">FAQs</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+          <div class="d-inline-flex align-items-center">
+            
+                <button [hidden]="isLogged" class="btn btn-success" routerLink="login" type="button">
+                  Login
+                </button>
+                <button [hidden]="isLogged" class="btn btn-primary ms-3" routerLink="register" type="button">
+                  Register
+                </button>
+                <button [hidden]="!isLogged" class="btn btn-danger ms-3" (click)="logOutUser()"  type="button">
+                  Logout
+                </button>
+            
+          </div>
+          <div class="d-inline-flex align-items-center d-block d-lg-none">
+            <a routerLink="/wishing-list" class="btn px-0 ml-2">
+              <i class="fas fa-heart text-dark"></i>
+            </a>
+            <a routerLink="/cart" class="btn px-0 ml-2">
+              <i class="fas fa-shopping-cart text-dark"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-8">
+          <a routerLink="/" class="text-decoration-none">
+            <span class="h1 text-uppercase text-primary bg-dark px-2">eBuy</span>
+            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1"
+              >Shop</span
+            >
+          </a>
+        </div>
+  
+        <div class="col-lg-4 col-6 text-right">
+          <p class="m-0">Customer Service</p>
+          <h5 class="m-0">+20-1024475304</h5>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
+  
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-dark mb-30">
+      <div class="row px-xl-5">
+        <div class="col-lg-12">
+          <nav
+            class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0"
+          >
+            <a routerLink="/" class="text-decoration-none d-block d-lg-none">
+              <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
+              <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1"
+                >Shop</span
+              >
+            </a>
+            <button
+              type="button"
+              class="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbarCollapse"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-between"
+              id="navbarCollapse"
+            >
+              <div class="navbar-nav mr-auto py-0">
+                <a routerLink="/" class="nav-item nav-link" routerLinkActive="active">Home</a>
+                <a routerLink="/products" class="nav-item nav-link" routerLinkActive="active">Shop</a>
+  
+                <a routerLink="/shoppingcart" class="nav-item nav-link" routerLinkActive="active">Shopping Cart</a>
+                <a routerLink="/orders" class="nav-item nav-link" routerLinkActive="active">orders</a>
+                <a routerLink="/contactUs" class="nav-item nav-link" routerLinkActive="active">Contact</a>
+                <a routerLink="/aboutUs" class="nav-item nav-link"routerLinkActive="active">About</a>
+  
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    Category
+                    <i class="fa fa-angle-down mt-1"></i>
+                  </a>
+                  <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                    <a routerLink="/address/newAddress" routerLinkActive="active" class="dropdown-item"
+                      >Add New shipping Address
+                    </a>
+                    <a routerLink="/address/savedAddresses" routerLinkActive="active" class="dropdown-item"
+                      >Saved Shipping 
+                    </a>
+                  </div>
+                </div>
+  
+                <a routerLink="/profile" class="nav-item nav-link" routerLinkActive="active">Profile</a>
+              </div>
+  
+              <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                <a routerLink="/wishing-list" class="btn px-0 mr-3" style="border: 1px solid #ffd333;
+                width: 36px;">
+                  <span class="wishlist-item-count" >{{wishitemslength}}</span>
+                  <i class="fas fa-heart text-primary"></i>
+                </a>
+  
+                <a routerLink="/shoppingcart" class="btn px-0 mr-3"
+                 routerLinkActive="active" style="border: 1px solid #ffd333; width: 36px;">
+                  <span class="cart-item-count">{{carditemslength}}</span>
+                  <i class="fas fa-shopping-cart text-primary"></i>
+              </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar End -->
+  </div>
+  
+  <!--If He is logged in this will apear-->
+   <div *ngIf="user != ''">
+     Topbar Start 
+    <div class="container-fluid">
+      <div class="row bg-secondary py-1 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="d-inline-flex align-items-center h-100">
+            <a class="text-body mr-3" routerLink="/about">About</a>
+            <a class="text-body mr-3" routerLink="/contact">Contact</a>
+            <a class="text-body mr-3" routerLink="/faq">FAQs</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+          <div class="d-inline-flex align-items-center">
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-sm btn-primary dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                {{ user }}
+              </button>
+              <div class="dropdown-menu bg-primary dropdown-menu-right">
+                <button class="dropdown-item" (click)="logOut()" type="button">
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="d-inline-flex align-items-center d-block d-lg-none">
+            <a routerLink="/wishing-list" class="btn px-0 ml-2">
+              <i class="fas fa-heart text-dark"></i>
+            </a>
+            <a routerLink="/cart" class="btn px-0 ml-2">
+              <i class="fas fa-shopping-cart text-dark"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-8">
+          <a routerLink="/" class="text-decoration-none">
+            <span class="h1 text-uppercase text-primary bg-dark px-2">eBuy</span>
+            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1"
+              >Shop</span
+            >
+          </a>
+        </div>
+  
+        <div class="col-lg-4 col-6 text-right">
+          <p class="m-0">Customer Service</p>
+          <h5 class="m-0">+01024475304</h5>
+        </div>
+      </div>
+    </div>
+     <!-- Topbar End  -->
+  
+     <!-- Navbar Start -->
+    <div class="container-fluid bg-dark mb-30">
+      <div class="row px-xl-5">
+        <div class="col-lg-12">
+          <nav
+            class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0"
+          >
+            <a routerLink="/" class="text-decoration-none d-block d-lg-none">
+              <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
+              <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1"
+                >Shop</span
+              >
+            </a>
+            <button
+              type="button"
+              class="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbarCollapse"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-between"
+              id="navbarCollapse"
+            >
+              <div class="navbar-nav mr-auto py-0">
+                <a routerLink="/" class="nav-item nav-link">Home</a>
+                <a routerLink="/products" class="nav-item nav-link">Shop</a>
+                <a routerLink="/shoppingcart" class="nav-item nav-link">Shopping Cart</a>
+                <a routerLink="/orders" class="nav-item nav-link">orders</a>
+                <a routerLink="/contactUs" class="nav-item nav-link">Contact</a>
+                <a routerLink="/aboutUs" class="nav-item nav-link">About</a>
+  
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    Address
+                    <i class="fa fa-angle-down mt-1"></i>
+                  </a>
+                  <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                    <a routerLink="/address/newAddress" class="dropdown-item"
+                      >Add New shipping Address
+                    </a>
+                    <a routerLink="/address/savedAddresses" class="dropdown-item"
+                      >Saved Shipping Addresses
+                    </a>
+                  </div>
+                </div>
+  
+                <a routerLink="/profile" class="nav-item nav-link">Profile</a>
+         
+              </div>
+  
+              <div class="navbar-nav ml-auto py-0 d-none d-lg-block d-flex justify-content-center align-items-center">
+                <a routerLink="/wishing-list" class="btn px-0 mr-3">
+                  <i class="fas fa-heart text-primary"></i>
+                </a>
+  
+                <a routerLink="/cart"  class="btn px-0 mr-3">
+                  <i class="fas fa-shopping-cart text-primary"></i
+                ></a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+     Navbar End 
+  </div> 

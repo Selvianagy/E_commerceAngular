@@ -1,0 +1,90 @@
+<div class="container">
+<div class="card">
+    
+    <div class="card-body">
+        
+        <div class="row">
+            <div class="col-md-7">
+                <div class="left border">
+                    <div class="row">
+                        <span class="header">Payment</span>
+                        <div class="icons">
+                            <img src="https://img.icons8.com/color/48/000000/visa.png"/>
+                            <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"/>
+                            <img src="https://img.icons8.com/color/48/000000/maestro.png"/>
+                        </div>
+                    </div>
+                    <form [formGroup]="PaymentForm" >
+                        <span>Cardholder's name:</span>
+                        <input [class.is-invalid]="NameCustomer?.invalid&&NameCustomer?.touched" type="text" formControlName="userName"
+                         placeholder="Linda Williams" value={{UserName}} name="NameCustomer">
+                         <div *ngIf="NameCustomer?.errors&&NameCustomer?.touched">
+                            <small *ngIf="NameCustomer?.errors?.['required']">Customer Name is required</small>
+                          </div>
+
+                        <span>Card Number:</span>
+                        <input [class.is-invalid]="CreditCardNum?.invalid&&CreditCardNum?.touched" formControlName="creditCard_Num"
+                        placeholder="0125 6780 4567 9909" name="CreditCardNum" type="text">
+                        <div *ngIf="CreditCardNum?.errors&&CreditCardNum?.touched">
+                            <small *ngIf="CreditCardNum?.errors?.['required']">CreditCard Number is required</small>
+                            <small *ngIf="CreditCardNum?.errors?.['pattern']">CreditCard Number must be only Numbers</small>
+                          </div>
+                        <div class="row">
+                            <div class="col-4"><span>Expiry date:</span>
+                                <input placeholder="YY/MM"  name="Expirydate"
+                                [class.is-invalid]="Expirydate?.invalid&&Expirydate?.touched" formControlName="expirydate">
+                                <div *ngIf="Expirydate?.errors&&Expirydate?.touched">
+                                    <small *ngIf="Expirydate?.errors?.['required']">Expiry date is required</small>
+                                  </div>
+                            </div>
+                            
+                            <div class="col-4"><span>CVV:</span>
+                                <input id="cvv" name="CVV"
+                                [class.is-invalid]="CVV?.invalid&&CVV?.touched" formControlName="CVV">
+                                <div *ngIf="CVV?.errors&&CVV?.touched">
+                                    <small *ngIf="CVV?.errors?.['required']">CVV is required</small>
+                                  </div>
+                            </div>
+                            
+                        </div>
+                       
+                    </form>
+                </div>                        
+            </div>
+            <div class="col-md-5">
+                <div class="right border">
+                    <div class="header">Order Summary</div>
+                    <p>{{cartItemsListLength}} items</p>
+                    <div class="row item" *ngFor="let cart of Cartitemlist">
+                        <div class="col-4 align-self-center"><img class="img-fluid" src="https://i.imgur.com/79M6pU0.png"></div>
+                        <div class="col-8">
+                            <div class="row"><b>$ {{cart.mainProduct.priceAfterDiscount|number}}</b></div>
+                            <div class="row text-muted">{{cart.mainProduct.name}}</div>
+                            <div class="row">Qty:{{cart.product_Quantity}}</div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row lower">
+                        <div class="col text-left">Subtotal</div>
+                        <div class="col text-right">$ {{Totalprice|number}}</div>
+                    </div>
+                    <div class="row lower">
+                        <div class="col text-left">Delivery</div>
+                        <div class="col text-right">Free</div>
+                    </div>
+                    <div class="row lower">
+                        <div class="col text-left"><b>Total to pay</b></div>
+                        <div class="col text-right"><b>$ {{Totalprice|number}}</b></div>
+                    </div>
+                    
+                    <button class="btn" [disabled]="PaymentForm.invalid"  (click)="PaymentData()">Place order</button>
+                    <p class="text-muted text-center">Complimentary Shipping & Returns</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ <div>
+</div>
+</div>
+</div>
