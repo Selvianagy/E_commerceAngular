@@ -16,7 +16,7 @@ export class AdmindashboardComponent {
   Totals:ITotalInfo | undefined;
   errorMessage: any;
 
-
+  username:any=localStorage.getItem('username')
 
   constructor(private TotalService:AdminService, private router :Router,private activatedRoute:ActivatedRoute ){}
   ngOnInit(): void {

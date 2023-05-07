@@ -28,6 +28,11 @@ import { ProfitComponent } from './admin/profit/profit.component';
 import { StoresComponent } from './admin/stores/stores.component';
 import { UpdateCategoryComponent } from './admin/update-category/update-category.component';
 import { UpdateStoreComponent } from './admin/update-store/update-store.component';
+import { MobileComponent } from './products/mobile/mobile.component';
+import { BookComponent } from './products/book/book.component';
+import { ComputerComponent } from './products/computer/computer.component';
+import { TvComponent } from './products/tv/tv.component';
+import { ClothingComponent } from './products/clothing/clothing.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -58,7 +63,12 @@ const routes: Routes = [
       { path: 'shoppingcart', component: ShoppingCartComponent,canActivate:[AuthGuard]    },
       { path: 'checkout', component: CheckoutComponent ,canActivate:[AuthGuard]},
       { path: 'wishing-list', component: WishlistComponent ,canActivate:[AuthGuard]},
-      {path:'product-details/',component:ProductDetailsComponent},
+      {path:'product-details/:name/:id',component:ProductDetailsComponent},
+      {path:'mobile',component:MobileComponent},
+      {path:'book',component:BookComponent},
+      {path:'computer',component:ComputerComponent},
+      {path:'tv',component:TvComponent},
+      {path:'clothing',component:ClothingComponent},
       {path:'contactUs',component:ContactUsComponent},
       {path:'aboutUs',component:AboutUsComponent},
       { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },

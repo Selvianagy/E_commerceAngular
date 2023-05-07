@@ -1,0 +1,43 @@
+
+<owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of getAllBooks" style="margin: 20px;">
+      <ng-template carouselSlide [id]="slide.id" >
+        <div class="card">
+          <div class="card-main">
+              <div class="discount">-9%</div>
+              <div class="label label-green">Pre-order</div>
+              <div class="product-container">
+                <div *ngFor="let image of slide.mobileImges" class="p" (mouseover)="imageChange($event)"><img src={{image}}
+                    alt="Product"></div>
+              </div>
+              <div class="image">
+                  <img src={{slide.mobileImges[0]}} alt="Product" class="card-img-top shadow p-3 mb-5 bg-white rounded"
+                  style="height: 300px;">
+              </div>
+              <div class="cart-line"></div>
+              <div class="cart-item">
+                  <ul>
+                      
+                      <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                      <li><a href=""><i class="fa fa-heart"></i></a></li>
+                      <li><a [routerLink]="['/product-details/Book',slide.id]"><i class="fa fa-search"></i></a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="content">
+              <a href="javascript:void(0);">Incidid Tongue Bar</a>
+              <div class="rating">
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o"></i>
+              </div>
+          </div>
+      </div>
+        
+      </ng-template>
+    </ng-container>
+  
+  </owl-carousel-o>
+  

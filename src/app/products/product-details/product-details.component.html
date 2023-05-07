@@ -1,1 +1,1085 @@
-<p>product-details works!</p>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <section class="bg-color" *ngIf="Category==MobileCategory">
+            <div class="containers">
+                <div class="title">
+                    <p>The Best Seller Of Hitheme</p>
+                    <h2><span>Best</span> Seller</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="card">
+                            <a>
+                                <div class="card-main h">
+                                    <!-- <div class="discount">%</div> -->
+
+                                    <div class="product-container" *ngFor="let image of CategoryDetails.mobileImges">
+                                        <div class="p" (mouseover)="imageChange($event)"><img src={{image}}
+                                                alt="Product"></div>
+                                    </div>
+                                    <div class="image ">
+                                        <img src={{CategoryDetails.mobileImges[0]}}  alt="Product"
+                                            class="card-img-top shadow p-3 mb-5 bg-white rounded">
+                                    </div>
+
+
+
+                                    <section style="background-color: #eee;">
+                                        <div class="container my-5 py-5  ">
+                                          <div class="row d-flex justify-content-center  col-md-12">
+                                            <div class="col-md-12 col-lg-12 col-xl-12">
+                                              <div class="card">
+                                              
+                                                <div class="card-footer py-3 border-0 m-1 " style="background-color: #f8f9fa;" id="newreview"  >
+                                                    <div class="d-flex flex-start w-100"  *ngFor="let rev of reviews" >
+                                                      <img class="rounded-circle shadow-1-strong  m-1"
+                                                        src={{rev.imageSource}} alt="avatar" width="40"
+                                                        height="40" />
+                                                      <div class="form-outline w-100">
+                                            
+                                                        <label class="form-control" for="textAreaExample" rows="2"   style="background: #fff;">{{rev.comment}}</label>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                                                  <div class="d-flex flex-start w-100">
+                                                    <img class="rounded-circle shadow-1-strong me-3"
+                                                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                      height="40" />
+                                                    <div class="form-outline w-100"   >
+                                                      <textarea class="form-control" id="textAreaExample" rows="2"
+                                                        style="background: #fff;"  [(ngModel)]="newReview"></textarea>
+                                                      <label class="form-label" for="textAreaExample">Message</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="float-end mt-2 pt-1">
+                                                    <button type="button" class="btn btn-primary btn-sm"  (click)="createComment()">Post comment</button>
+                                                    <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </section>
+                                    <div class="cart-line"></div>
+
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <hr>
+                        <h3 style="color: black;  font-size:20px; margin-right: 80px;">{{
+                            CategoryDetails.name}}</h3>
+                        <div *ngIf=" CategoryDetails.rateValue==1">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 4">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 5">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==2">
+
+                            <span class="star" [class.filled]=" 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==3">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==4">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==5">
+
+                            <span class="star" [class.filled]="rating >= 1" (click)="onClick(1)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2" (click)="onClick(2)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=4" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=5" (click)="onClick(3)">&#9733;</span>
+                        </div>
+                        <hr>
+                        <div *ngIf="CategoryDetails.priceAfterDiscount !=null">
+                            <span style="color: red;  font-size:30px; margin-right: 22px;">-20%</span>
+                            <span style="color: green;  font-size:30px;">{{
+                                CategoryDetails.priceAfterDiscount}}</span>
+                        </div>
+
+                        <div *ngIf="CategoryDetails.priceAfterDiscount ==null">
+
+                            <span style="color: green;  font-size:30px;">{{ CategoryDetails.price}}$</span>
+                        </div>
+                        <p>$145.43 Shipping & Import Fees Deposit to Egypt</p>
+                        <p>Available at a lower price from other sellers that may not offer free Prime shipping.</p>
+                        <hr>
+
+                        <div>
+                            <span style="color: lightslategrey;  font-size:25px; margin-right: 10px;">color:</span>
+                            <span style="color: black;  font-size:25px; font-weight: bold;">black</span>
+                        </div>
+
+                        <div>
+                            <img class="m-3" *ngFor="let image of CategoryDetails.mobileImges" src={{image}} alt="Product" width="120" height="120">
+                            
+
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Brand:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.brandName}}</span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">StoreName:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;"></span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color:  lightslategrey;  font-size:25px; margin-right: 2px;">ScreenSize:</span>
+                                <span
+                                    style="color: black;  font-size:20px; font-weight: bold;">{{CategoryDetails.screenSize}}Inch</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Ram:</span>
+                                <span style="color: black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.ram}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Number SIM
+                                    Cards:</span>
+                                <span
+                                    style="color: black;;  font-size:20px; font-weight: bold;">{{CategoryDetails.numSIMCards}}</span>
+                            </div>
+
+
+                            <div>
+                                <span style="color:   lightslategrey; font-size:25px; margin-right: 2px;">Battery
+                                    Life:</span>
+                                <span
+                                    style="color:black;  font-size:20px; font-weight: bold;">{{CategoryDetails.batteryLife}}
+                                    Hours</span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Description:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.description}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Storage
+                                    Capacity:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.storageCapacity}} G</span>
+                            </div>
+
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Weight:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.weight}} g</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Operating
+                                    System:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.operatingSystem}} </span>
+                            </div>
+                          
+                   
+                        </div>
+
+                  
+
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="bg-color" *ngIf="Category==TVCategory">
+            <div class="containers">
+                <div class="title">
+                    <p>The Best Seller Of Hitheme</p>
+                    <h2><span>Best</span> Seller</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="card">
+                            <a>
+                                <div class="card-main h">
+                                    <!-- <div class="discount">%</div> -->
+
+                                    <div class="product-container">
+                                        <div *ngFor="let image of CategoryDetails.mobileImges" class="p" (mouseover)="imageChange($event)"><img src={{image}}
+                                                alt="Product"></div>
+                                        
+                                    </div>
+                                    <div class="image ">
+                                        <img src={{CategoryDetails.mobileImges[0]}} alt="Product"
+                                            class="card-img-top shadow p-3 mb-5 bg-white rounded">
+                                    </div>
+
+
+
+                                    <section style="background-color: #eee;">
+                                        <div class="container my-5 py-5  ">
+                                          <div class="row d-flex justify-content-center  col-md-12">
+                                            <div class="col-md-12 col-lg-12 col-xl-12">
+                                              <div class="card">
+                                              
+                                                <div class="card-footer py-3 border-0 m-1 " style="background-color: #f8f9fa;" id="newreview"  >
+                                                    <div class="d-flex flex-start w-100"  *ngFor="let rev of reviews" >
+                                                      <img class="rounded-circle shadow-1-strong  m-1"
+                                                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                        height="40" />
+                                                      <div class="form-outline w-100">
+                                            
+                                                        <label class="form-control" for="textAreaExample" rows="2"   style="background: #fff;">{{rev.comment}}</label>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                                                  <div class="d-flex flex-start w-100">
+                                                    <img class="rounded-circle shadow-1-strong me-3"
+                                                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                      height="40" />
+                                                    <div class="form-outline w-100"   >
+                                                      <textarea class="form-control" id="textAreaExample" rows="2"
+                                                        style="background: #fff;"  [(ngModel)]="newReview"></textarea>
+                                                      <label class="form-label" for="textAreaExample">Message</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="float-end mt-2 pt-1">
+                                                    <button type="button" class="btn btn-primary btn-sm"  (click)="createComment()">Post comment</button>
+                                                    <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </section>
+                                      
+                                    <div class="cart-line"></div>
+
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <hr>
+                        <h3 style="color: black;  font-size:20px; margin-right: 80px;">{{
+                            CategoryDetails.name}}</h3>
+                        <div *ngIf=" CategoryDetails.rateValue==1">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 4">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 5">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==2">
+
+                            <span class="star" [class.filled]=" 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==3">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==4">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==5">
+
+                            <span class="star" [class.filled]="rating >= 1" (click)="onClick(1)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2" (click)="onClick(2)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=4" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=5" (click)="onClick(3)">&#9733;</span>
+                        </div>
+                        <hr>
+                        <div *ngIf="CategoryDetails.priceAfterDiscount !=null">
+                            <span style="color: red;  font-size:30px; margin-right: 22px;">-20%</span>
+                            <span style="color: green;  font-size:30px;">{{
+                                CategoryDetails.priceAfterDiscount}}</span>
+                        </div>
+
+                        <div *ngIf="CategoryDetails.priceAfterDiscount ==null">
+
+                            <span style="color: green;  font-size:30px;">{{ CategoryDetails.price}}$</span>
+                        </div>
+                        <p>$145.43 Shipping & Import Fees Deposit to Egypt</p>
+                        <p>Available at a lower price from other sellers that may not offer free Prime shipping.</p>
+                        <hr>
+
+                        <div>
+                            <span style="color: lightslategrey;  font-size:25px; margin-right: 10px;">color:</span>
+                            <span style="color: black;  font-size:25px; font-weight: bold;">black</span>
+                        </div>
+
+                        <div>
+                            <img *ngFor="let image of CategoryDetails.mobileImges"  class="m-3" src={{image}} alt="Product" width="120" height="120">
+
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Brand:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.brandName}}</span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">StoreName:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;"></span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color:  lightslategrey;  font-size:25px; margin-right: 2px;">SUSB Ports:</span>
+                                <span
+                                    style="color: black;  font-size:20px; font-weight: bold;">{{CategoryDetails.screenSize}}Inch</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Resolution:</span>
+                                <span style="color: black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.ram}}</span>
+                            </div>
+
+        
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Description:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.description}}</span>
+                            </div>
+
+                        
+                          
+                   
+                        </div>
+
+                  
+
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="bg-color" *ngIf="Category==BookCategory">
+            <div class="containers">
+                <div class="title">
+                    <p>The Best Seller Of Hitheme</p>
+                    <h2><span>Best</span> Seller</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="card">
+                            <a>
+                                <div class="card-main h">
+                                    <!-- <div class="discount">%</div> -->
+
+                                    <div class="product-container">
+                                        <div *ngFor="let image of CategoryDetails.mobileImges" class="p" (mouseover)="imageChange($event)"><img src={{image}}
+                                                alt="Product"></div>
+
+                                    </div>
+                                    <div class="image ">
+                                        <img src={{CategoryDetails.mobileImges[0]}} alt="Product"
+                                            class="card-img-top shadow p-3 mb-5 bg-white rounded">
+                                    </div>
+
+
+
+                                    <section style="background-color: #eee;">
+                                        <div class="container my-5 py-5  ">
+                                          <div class="row d-flex justify-content-center  col-md-12">
+                                            <div class="col-md-12 col-lg-12 col-xl-12">
+                                              <div class="card">
+                                              
+                                                <div class="card-footer py-3 border-0 m-1 " style="background-color: #f8f9fa;" id="newreview"  >
+                                                    <div class="d-flex flex-start w-100"  *ngFor="let rev of reviews" >
+                                                      <img class="rounded-circle shadow-1-strong  m-1"
+                                                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                        height="40" />
+                                                      <div class="form-outline w-100">
+                                            
+                                                        <label class="form-control" for="textAreaExample" rows="2"   style="background: #fff;">{{rev.comment}}</label>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                                                  <div class="d-flex flex-start w-100">
+                                                    <img class="rounded-circle shadow-1-strong me-3"
+                                                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                      height="40" />
+                                                    <div class="form-outline w-100"   >
+                                                      <textarea class="form-control" id="textAreaExample" rows="2"
+                                                        style="background: #fff;"  [(ngModel)]="newReview"></textarea>
+                                                      <label class="form-label" for="textAreaExample">Message</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="float-end mt-2 pt-1">
+                                                    <button type="button" class="btn btn-primary btn-sm"  (click)="createComment()">Post comment</button>
+                                                    <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </section>
+                                      
+                                    <div class="cart-line"></div>
+
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <hr>
+                        <h3 style="color: black;  font-size:20px; margin-right: 80px;">{{
+                            CategoryDetails.name}}</h3>
+                        <div *ngIf=" CategoryDetails.rateValue==1">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 4">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 5">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==2">
+
+                            <span class="star" [class.filled]=" 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==3">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==4">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==5">
+
+                            <span class="star" [class.filled]="rating >= 1" (click)="onClick(1)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2" (click)="onClick(2)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=4" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=5" (click)="onClick(3)">&#9733;</span>
+                        </div>
+                        <hr>
+                        <div *ngIf="CategoryDetails.priceAfterDiscount !=null">
+                            <span style="color: red;  font-size:30px; margin-right: 22px;">-20%</span>
+                            <span style="color: green;  font-size:30px;">{{
+                                CategoryDetails.priceAfterDiscount}}</span>
+                        </div>
+
+                        <div *ngIf="CategoryDetails.priceAfterDiscount ==null">
+
+                            <span style="color: green;  font-size:30px;">{{ CategoryDetails.price}}$</span>
+                        </div>
+                        <p>$145.43 Shipping & Import Fees Deposit to Egypt</p>
+                        <p>Available at a lower price from other sellers that may not offer free Prime shipping.</p>
+                        <hr>
+
+                        <div>
+                            <span style="color: lightslategrey;  font-size:25px; margin-right: 10px;">color:</span>
+                            <span style="color: black;  font-size:25px; font-weight: bold;">black</span>
+                        </div>
+
+                        <div>
+                            <img *ngFor="let image of CategoryDetails.mobileImges" class="m-3" src={{image}} alt="Product" width="120" height="120">
+
+
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Brand:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.brandName}}</span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">StoreName:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;"></span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color:  lightslategrey;  font-size:25px; margin-right: 2px;">SUSB Ports:</span>
+                                <span
+                                    style="color: black;  font-size:20px; font-weight: bold;">{{CategoryDetails.screenSize}}Inch</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Resolution:</span>
+                                <span style="color: black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.ram}}</span>
+                            </div>
+
+        
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Description:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.description}}</span>
+                            </div>
+
+                        
+                          
+                   
+                        </div>
+
+                  
+
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="bg-color" *ngIf="Category==ComputerCategory">
+            <div class="containers">
+                <div class="title">
+                    <p>The Best Seller Of Hitheme</p>
+                    <h2><span>Best</span> Seller</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="card">
+                            <a>
+                                <div class="card-main h">
+                                    <!-- <div class="discount">%</div> -->
+
+                                    <div class="product-container">
+                                        <div *ngFor="let image of CategoryDetails.mobileImges" class="p" (mouseover)="imageChange($event)"><img src={{image}}
+                                                alt="Product"></div>
+                                       
+                                    </div>
+                                    <div class="image ">
+                                        <img src={{CategoryDetails.mobileImges[0]}} alt="Product"
+                                            class="card-img-top shadow p-3 mb-5 bg-white rounded">
+                                    </div>
+
+
+                                    <div class="cart-line"></div>
+
+                                </div>
+
+                                
+                                <section style="background-color: #eee;">
+                                    <div class="container my-5 py-5  ">
+                                      <div class="row d-flex justify-content-center  col-md-12">
+                                        <div class="col-md-12 col-lg-12 col-xl-12">
+                                          <div class="card">
+                                          
+                                            <div class="card-footer py-3 border-0 m-1 " style="background-color: #f8f9fa;" id="newreview"  >
+                                                <div class="d-flex flex-start w-100"  *ngFor="let rev of reviews" >
+                                                  <img class="rounded-circle shadow-1-strong  m-1"
+                                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                    height="40" />
+                                                  <div class="form-outline w-100">
+                                        
+                                                    <label class="form-control" for="textAreaExample" rows="2"   style="background: #fff;">{{rev.comment}}</label>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                                              <div class="d-flex flex-start w-100">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                  height="40" />
+                                                <div class="form-outline w-100"   >
+                                                  <textarea class="form-control" id="textAreaExample" rows="2"
+                                                    style="background: #fff;"  [(ngModel)]="newReview"></textarea>
+                                                  <label class="form-label" for="textAreaExample">Message</label>
+                                                </div>
+                                              </div>
+                                              <div class="float-end mt-2 pt-1">
+                                                <button type="button" class="btn btn-primary btn-sm"  (click)="createComment()">Post comment</button>
+                                                <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </section>
+                            </a>
+                           
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <hr>
+                        <h3 style="color: black;  font-size:20px; margin-right: 80px;">{{
+                            CategoryDetails.name}}</h3>
+                        <div *ngIf=" CategoryDetails.rateValue==1">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 4">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 5">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==2">
+
+                            <span class="star" [class.filled]=" 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==3">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==4">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==5">
+
+                            <span class="star" [class.filled]="rating >= 1" (click)="onClick(1)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2" (click)="onClick(2)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=4" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=5" (click)="onClick(3)">&#9733;</span>
+                        </div>
+                        <hr>
+                        <div *ngIf="CategoryDetails.priceAfterDiscount !=null">
+                            <span style="color: red;  font-size:30px; margin-right: 22px;">-20%</span>
+                            <span style="color: green;  font-size:30px;">{{
+                                CategoryDetails.priceAfterDiscount}}</span>
+                        </div>
+
+                        <div *ngIf="CategoryDetails.priceAfterDiscount ==null">
+
+                            <span style="color: green;  font-size:30px;">{{ CategoryDetails.price}}$</span>
+                        </div>
+                        <p>$145.43 Shipping & Import Fees Deposit to Egypt</p>
+                        <p>Available at a lower price from other sellers that may not offer free Prime shipping.</p>
+                        <hr>
+
+                        <div>
+                            <span style="color: lightslategrey;  font-size:25px; margin-right: 10px;">color:</span>
+                            <span style="color: black;  font-size:25px; font-weight: bold;">black</span>
+                        </div>
+
+                        <div>
+                            <img *ngFor="let image of CategoryDetails.mobileImges" class="m-3" src={{image}} alt="Product" width="120" height="120">
+                            <img class="m-3" src="assets/img/1.jpg" alt="Product" width="120" height="120">
+                            <img class="m-3" src="assets/img/1.jpg" alt="Product" width="120" height="120">
+
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Brand:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.brandName}}</span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">StoreName:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;"></span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color:  lightslategrey;  font-size:25px; margin-right: 2px;">ScreenSize:</span>
+                                <span
+                                    style="color: black;  font-size:20px; font-weight: bold;">{{CategoryDetails.screenSize}}Inch</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Ram:</span>
+                                <span style="color: black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.ram}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color:   lightslategrey; font-size:25px; margin-right: 2px;">Country Of
+                                    Origin:</span>
+                                <span
+                                    style="color:black;  font-size:20px; font-weight: bold;">{{CategoryDetails.countryOfOrigin}}</span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Description:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.description}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Storage
+                                    Capacity:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.storageCapacity}} G</span>
+                            </div>
+
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Weight:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.weight}} g</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Operating
+                                    System:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.operatingSystem}} </span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">USBPorts:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.usbPorts}} </span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">HdmiOutputs:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.hdmiOutputs}} </span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Warranty
+                                    Period:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.warrantyPeriod}} </span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Model:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.model}} </span>
+                            </div>
+
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">processor:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.processor}} </span>
+                            </div>
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">graphicsCard:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.graphicsCard}} </span>
+                            </div>
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">material:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.material}} </span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="bg-color" *ngIf="Category==ClothingCategory">
+            <div class="containers">
+                <div class="title">
+                    <p>The Best Seller Of Hitheme</p>
+                    <h2><span>Best</span> Seller</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="card">
+                            <a>
+                                <div class="card-main h">
+                                    <!-- <div class="discount">%</div> -->
+
+                                    <div class="product-container">
+                                        <div *ngFor="let image of CategoryDetails.mobileImges" class="p" (mouseover)="imageChange($event)"><img src={{image}}
+                                                alt="Product"></div>
+                                    </div>
+                                    <div class="image ">
+                                        <img src={{CategoryDetails.mobileImges[0]}} alt="Product"
+                                            class="card-img-top shadow p-3 mb-5 bg-white rounded">
+                                    </div>
+
+
+                                    <div class="cart-line"></div>
+
+                                </div>
+                            </a>
+                              
+                            <section style="background-color: #eee;">
+                                <div class="container my-5 py-5  ">
+                                  <div class="row d-flex justify-content-center  col-md-12">
+                                    <div class="col-md-12 col-lg-12 col-xl-12">
+                                      <div class="card">
+                                      
+                                        <div class="card-footer py-3 border-0 m-1 " style="background-color: #f8f9fa;" id="newreview"  >
+                                            <div class="d-flex flex-start w-100"  *ngFor="let rev of reviews" >
+                                              <img class="rounded-circle shadow-1-strong  m-1"
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                                height="40" />
+                                              <div class="form-outline w-100">
+                                    
+                                                <label class="form-control" for="textAreaExample" rows="2"   style="background: #fff;">{{rev.comment}}</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                                          <div class="d-flex flex-start w-100">
+                                            <img class="rounded-circle shadow-1-strong me-3"
+                                              src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
+                                              height="40" />
+                                            <div class="form-outline w-100"   >
+                                              <textarea class="form-control" id="textAreaExample" rows="2"
+                                                style="background: #fff;"  [(ngModel)]="newReview"></textarea>
+                                              <label class="form-label" for="textAreaExample">Message</label>
+                                            </div>
+                                          </div>
+                                          <div class="float-end mt-2 pt-1">
+                                            <button type="button" class="btn btn-primary btn-sm"  (click)="createComment()">Post comment</button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <hr>
+                        <h3 style="color: black;  font-size:20px; margin-right: 80px;">{{
+                            CategoryDetails.name}}</h3>
+                        <div *ngIf=" CategoryDetails.rateValue==1">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 4">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 5">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==2">
+
+                            <span class="star" [class.filled]=" 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==3">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==4">
+
+                            <span class="star" [class.filled]="rating >= 1">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3">&#9733;</span>
+                        </div>
+
+                        <div *ngIf=" CategoryDetails.rateValue==5">
+
+                            <span class="star" [class.filled]="rating >= 1" (click)="onClick(1)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 2" (click)="onClick(2)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >= 3" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=4" (click)="onClick(3)">&#9733;</span>
+                            <span class="star" [class.filled]="rating >=5" (click)="onClick(3)">&#9733;</span>
+                        </div>
+                        <hr>
+                        <div *ngIf="CategoryDetails.priceAfterDiscount !=null">
+                            <span style="color: red;  font-size:30px; margin-right: 22px;">-20%</span>
+                            <span style="color: green;  font-size:30px;">{{
+                                CategoryDetails.priceAfterDiscount}}</span>
+                        </div>
+
+                        <div *ngIf="CategoryDetails.priceAfterDiscount ==null">
+
+                            <span style="color: green;  font-size:30px;">{{ CategoryDetails.price}}$</span>
+                        </div>
+                        <p>$145.43 Shipping & Import Fees Deposit to Egypt</p>
+                        <p>Available at a lower price from other sellers that may not offer free Prime shipping.</p>
+                        <hr>
+
+                        <div>
+                            <span style="color: lightslategrey;  font-size:25px; margin-right: 10px;">color:</span>
+                            <span style="color: black;  font-size:25px; font-weight: bold;">black</span>
+                        </div>
+
+                        <div>
+                            <img *ngFor="let image of CategoryDetails.mobileImges" class="m-3" src={{image}} alt="Product" width="120" height="120">
+                            <img class="m-3" src="assets/img/1.jpg" alt="Product" width="120" height="120">
+                            <img class="m-3" src="assets/img/1.jpg" alt="Product" width="120" height="120">
+
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Brand:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.brandName}}</span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">StoreName:</span>
+                                <span style="color:  black;  font-size:20px; font-weight: bold;"></span>
+                            </div>
+
+                            <div>
+                                <span style="color:  lightslategrey;  font-size:25px; margin-right: 2px;">Size:</span>
+                                <span
+                                    style="color: black;  font-size:20px; font-weight: bold;">{{CategoryDetails.size}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Gender:</span>
+                                <span style="color: black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.gender}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Season:</span>
+                                <span
+                                    style="color: black;;  font-size:20px; font-weight: bold;">{{CategoryDetails.season}}</span>
+                            </div>
+
+
+                            <div>
+                                <span style="color:   lightslategrey; font-size:25px; margin-right: 2px;">Manufacturer
+                                    Country:</span>
+                                <span
+                                    style="color:black;  font-size:20px; font-weight: bold;">{{CategoryDetails.manufacturerCountry}}
+                                </span>
+                            </div>
+
+                            <div>
+                                <span
+                                    style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Description:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.description}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">style:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.style}} </span>
+                            </div>
+
+
+                            <div>
+                                <span style="color: lightslategrey;  font-size:25px; margin-right: 2px;">Sleeve
+                                    Style:</span>
+                                <span style="color:black;  font-size:20px; font-weight: bold;">{{
+                                    CategoryDetails.sleeveStyle}} </span>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</div>

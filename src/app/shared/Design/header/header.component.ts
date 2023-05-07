@@ -12,12 +12,14 @@ import { WishlistService } from 'src/app/_services/wishlist.service';
 export class HeaderComponent {
 
   isLogged:boolean=false
+  isAdmin:boolean=false
+  isVendor:boolean=false
   carditemslength:number=0
   wishitemslength:number=0
   user:any='';
-  constructor( private authuser:AuthService,private cartitems:ShoppingcartService,private wishlist:WishlistService){ 
-
-   
+  constructor( private authuser:AuthService,private cartitems:ShoppingcartService,private wishlist:WishlistService
+    ,private userlogin:UserService){ 
+    
   }
   
   ngOnInit(){
@@ -34,7 +36,17 @@ export class HeaderComponent {
       this.wishitemslength=data
       console.log("wish "+data)
     })
-    
+    this.authuser.getRoolSubject().subscribe(data=>{
+      console.log(localStorage.getItem('role'))
+      if(data=='Admin'){
+        this.isAdmin=true
+      }else if(data=='Vendor'){
+        this.isVendor==true
+      }else{
+        this.isAdmin=false
+        this.isVendor=false
+      }
+     })
 
   }
 
@@ -44,7 +56,9 @@ export class HeaderComponent {
     this.wishitemslength=0
     this.authuser.logout()
   }
-
+getuser(){
+  
+}
   logOut(){
 
   }

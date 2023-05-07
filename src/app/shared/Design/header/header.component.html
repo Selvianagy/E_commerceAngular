@@ -78,33 +78,58 @@
             >
               <div class="navbar-nav mr-auto py-0">
                 <a routerLink="/" class="nav-item nav-link" routerLinkActive="active">Home</a>
-                <a routerLink="/products" class="nav-item nav-link" routerLinkActive="active">Shop</a>
+                <!-- <a routerLink="/products" class="nav-item nav-link" routerLinkActive="active">Shop</a> -->
   
                 <a routerLink="/shoppingcart" class="nav-item nav-link" routerLinkActive="active">Shopping Cart</a>
-                <a routerLink="/orders" class="nav-item nav-link" routerLinkActive="active">orders</a>
+
+                <div class="drop ">
+               
+                  <label for="btn-category" class="button " style="font-weight: 400; color: #F5F5F5; " id="category">Category
+                   <span class="fas fa-caret-down"></span>
+                  </label>
+                  <input type="checkbox" id="btn-category">
+                  <ul class="menu">
+                     
+                      <li>
+                          <label for="btn-electronics" class="first"> Electronics
+                              <span class="fas fa-caret-down"></span>
+                          </label>
+                          <input type="checkbox" id="btn-electronics">
+                          <ul>
+                              <li><a routerLink="/mobile">Mobiles</a></li>
+                              <li><a routerLink="/computer">Computers</a></li>
+                              <li><a routerLink="/tv">Tv</a></li>
+                          </ul>
+                      </li>
+              
+                      <li>
+                          <label for="btn-fashion" class="second"> Fashion
+                              <span class="fas fa-caret-down"></span>
+                          </label>
+                          <input type="checkbox" id="btn-fashion">
+                          <ul>
+                              <li><a routerLink="/clothing">Clothes</a></li>
+                           
+                          </ul>
+                      </li>
+              
+                      <li><a routerLink="/book">Books</a></li>
+                      
+                  </ul>
+                   
+         
+              
+               
+              </div>
+                <!-- <a routerLink="/orders" class="nav-item nav-link" routerLinkActive="active">orders</a> -->
                 <a routerLink="/contactUs" class="nav-item nav-link" routerLinkActive="active">Contact</a>
                 <a routerLink="/aboutUs" class="nav-item nav-link"routerLinkActive="active">About</a>
   
-                <div class="nav-item dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                  >
-                    Category
-                    <i class="fa fa-angle-down mt-1"></i>
-                  </a>
-                  <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                    <a routerLink="/address/newAddress" routerLinkActive="active" class="dropdown-item"
-                      >Add New shipping Address
-                    </a>
-                    <a routerLink="/address/savedAddresses" routerLinkActive="active" class="dropdown-item"
-                      >Saved Shipping 
-                    </a>
-                  </div>
-                </div>
-  
-                <a routerLink="/profile" class="nav-item nav-link" routerLinkActive="active">Profile</a>
+                
+                <!-- <a routerLink="/profile" class="nav-item nav-link" routerLinkActive="active">Profile</a> -->
+                <a routerLink="/admindashboard" [hidden]="!isAdmin" (click)="getuser()" class="nav-item nav-link" routerLinkActive="active">AdminDashBoard</a>
+                <a routerLink="/admindashboard" [hidden]="!isVendor" class="nav-item nav-link" routerLinkActive="active">VendorDashBoard</a>
+
               </div>
   
               <div class="navbar-nav ml-auto py-0 d-none d-lg-block">

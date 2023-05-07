@@ -32,14 +32,11 @@ export class WishlistService {
     }));
   }
   DeleteWishItems(id:number){
-    if(this.i!=0){
       this.i=this.i-1
       localStorage['wishitemslength']=this.i
       console.log("withlistlenth "+localStorage.getItem('wishitemslength'))
       this.wishlist.next(this.i)
-    }else if(this.i==0){
-      this.wishlist.next(0)
-    }
+    
     let params = new HttpParams().set('wishId', id);
 
     return this.httpClient.delete(`${this.baseurl}/DeleteWishCart`,{params: params}).pipe(catchError((err)=>{

@@ -14,6 +14,8 @@ export class AuthService {
 
  
   isLoggedSubject:BehaviorSubject<boolean>
+  isRoleSubject:BehaviorSubject<string>
+
   public user: any = null;
   httpOptions: any;
   baseurl = 'http://localhost:5244/api/Account';
@@ -22,7 +24,8 @@ export class AuthService {
     this.httpOptions = {
       headers: new Headers()
     }
-  this.isLoggedSubject=new BehaviorSubject<boolean> (false);
+    this.isLoggedSubject=new BehaviorSubject<boolean> (false);
+    this.isRoleSubject=new BehaviorSubject<string> ("customer");
   }
 
   login(body: ILogin){
@@ -64,6 +67,9 @@ export class AuthService {
     localStorage.removeItem('cartitemslength');
     localStorage.removeItem('wishitems');
     localStorage.removeItem('wishitemslength');
+    localStorage.removeItem('role');
+    localStorage.removeItem('userimage')
+
     this.isLoggedSubject.next(false);
     this.router.navigate(['/login']);
   }
@@ -77,13 +83,41 @@ export class AuthService {
   }
   console.log(newuser.Image)
   return this.httpClient.post(`${this.baseurl}/register`, formData);
-  // return this.httpClient.get("http://localhost:5244/api/Customer/GetCustomer?customerId=d71cd1ad-9a9e-42a0-9da3-0157623cd8c3")
 
   }
 
   registerVendor(vendor:any){
+    const formData = new FormData();
+  for (const user in vendor) {
+    if (!vendor.hasOwnProperty(user)) { continue; }
+    formData.append(user , vendor[user]);
+  }
     return this.httpClient.post(`${this.baseurl}/vendorRegister`, vendor);
 
+  }
+  get isUserRole(): string
+  {
+      if(localStorage.getItem('role')=='Admin'){
+        return 'Admin';
+      }else if(localStorage.getItem('role')=='Vendor'){
+        return 'Vendor'
+      }else{
+        return 'customer'
+      }
+  }
+
+  getRoolSubject(){
+    if(this.isUserRole.valueOf()=='Admin'){
+       this.isRoleSubject.next('Admin')
+       return this.isRoleSubject;
+    }else if(this.isUserRole.valueOf()=='Vendor'){
+      this.isRoleSubject.next('Vendor')
+      return this.isRoleSubject;
+   }else
+    {
+      this.isRoleSubject.next('customer')
+      return this.isRoleSubject;
+   }
   }
   get isUserLogged(): boolean
   {

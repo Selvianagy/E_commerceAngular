@@ -1,6 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders ,HttpParams} from '@angular/common/http';
+import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,9 +22,13 @@ export class UserService {
   }
 
 
-  getUser() {
-    return this.http.get<any>(`${this.baseurl}/getMe`, this.httpOptions);
-  }
+  getUser(userid:any) {
+      let params = new HttpParams().set('customerId', userid);
+  
+      return this.http.get("http://localhost:5244/api/Customer/GetCustomer",{params: params}).pipe(catchError((err)=>{
+        return throwError(()=>err.message ||"server error");
+      }));
+    }  
 
   updateUser(item: any) {
 

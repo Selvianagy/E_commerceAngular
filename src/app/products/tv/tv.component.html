@@ -1,0 +1,406 @@
+<div class="container-fluid">
+    <div class="row">
+  
+      <section class="bg-color">
+        <div class="containers">
+          <div class="title">
+            <p>The Best Seller Of Hitheme</p>
+            <h2><span>Best</span> Seller</h2>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card">
+                <div class="container p-5">
+                  <h3 style="font-weight: bolder; font-size: 25px;">Filter</h3>
+                  <ul id="product-list">
+                    <!-- product list items here -->
+                  </ul>
+  
+                  <hr>
+                  <div>
+                    <h3 style="font-weight: bold; font-size: 20px;">Brand</h3>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxBrandChange('Toshiba',$event)" class="form-check-input"
+                        id="shoes-filter" value="Apple">
+                      <label class="form-check-label" for="shoes-filter">Toshiba
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxBrandChange('Samsung',$event)" class="form-check-input"
+                        id="clothing-filter" value="Samsung">
+                      <label class="form-check-label" for="shoes-filter">Samsung
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxBrandChange('LG',$event)" class="form-check-input"
+                        id="accessories-filter" value="Oppo">
+                      <label class="form-check-label" for="shoes-filter">LG
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxBrandChange('Sony',$event)" class="form-check-input" id="Front_Camera" value="Nokia">
+                      <label class="form-check-label" for="shoes-filter">Sony
+                      </label>
+                    </div>
+                  </div>
+  
+  
+                  <hr>
+                  <!-- storageFilteration -->
+                  <div> 
+                    <h3 style="font-weight: bold; font-size: 20px;">Screen Size</h3>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxScreenChange(32,$event)" class="form-check-input"
+                        id="shoes-filter" value="32">
+                      <label class="form-check-label" for="shoes-filter"> 32 inches </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxScreenChange(50,$event)" class="form-check-input"
+                        id="clothing-filter" value="64">
+                      <label class="form-check-label" for="clothing-filter"> 50 inches </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxScreenChange(70,$event)" class="form-check-input"
+                        id="accessories-filter" value="128">
+                      <label class="form-check-label" for="accessories-filter">70 inches </label>
+                    </div>
+                    
+                  </div> 
+  
+                  <hr>
+  
+                  <!-- weightFilteration -->
+                 <div>
+                    <h3 style="font-weight: bold; font-size: 20px;">USB Ports</h3>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxUSBPrtsChange(2,$event)" class="form-check-input"
+                        id="shoes-filter" value="100">
+                      <label class="form-check-label" for="shoes-filter">2 Ports</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxUSBPrtsChange(3,$event)" class="form-check-input"
+                        id="clothing-filter" value="200">
+                      <label class="form-check-label" for="clothing-filter">3 Ports</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxUSBPrtsChange(5,$event)" class="form-check-input"
+                        id="accessories-filter" value="300">
+                      <label class="form-check-label" for="accessories-filter">5 Ports</label>
+                    </div>
+                  </div>
+  
+                  <hr>
+  
+                  <!-- RamFilteration -->
+                   <div> 
+  
+                    <h3 style="font-weight: bold; font-size: 20px;">Resolution</h3>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxResolutionChange(720,$event)" class="form-check-input"
+                        id="shoes-filter" value="8">
+                      <label class="form-check-label" for="shoes-filter">720 pixel</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxResolutionChange(1080,$event)" class="form-check-input"
+                        id="clothing-filter" value="16">
+                      <label class="form-check-label" for="clothing-filter">1080 pixel</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxResolutionChange(2160,$event)" class="form-check-input"
+                        id="accessories-filter" value="32">
+                      <label class="form-check-label" for="accessories-filter">2160 pixel</label>
+                    </div>
+                  </div> 
+                  <hr>
+  
+                  <!-- PriceFilteration -->
+                  <div>
+                    <h3 style="font-weight: bold; font-size: 20px;">Price</h3>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxPriceChange(0,$event)" class="form-check-input"
+                        id="shoes-filter" value="7000">
+                      <label class="form-check-label" for="shoes-filter">5000-7000</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxPriceChange(1,$event)" class="form-check-input"
+                        id="clothing-filter" value="clothing">
+                      <label class="form-check-label" for="clothing-filter">8000-11000</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)="onCheckboxPriceChange(2,$event)" class="form-check-input"
+                        id="accessories-filter" value="accessories">
+                      <label class="form-check-label" for="accessories-filter">Above 11000</label>
+                    </div>
+                  </div>
+                  <hr>
+  
+  
+                 <!--  RateFilteration -->
+                  <div>
+  
+                    <h3 style="font-weight: bold; font-size: 20px;">Rate</h3>
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxRateChange(1,$event)" class="form-check-input"
+                        id="shoes-filter" value="1">
+                      <label class="form-check-label" for="shoes-filter">
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i></label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxRateChange(2,$event)" class="form-check-input"
+                        id="clothing-filter" value="2">
+                      <label class="form-check-label" for="clothing-filter">
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxRateChange(3,$event)" class="form-check-input"
+                        id="accessories-filter" value="3">
+                      <label class="form-check-label" for="accessories-filter">
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+  
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxRateChange(4,$event)" class="form-check-input"
+                        id="accessories-filter" value="4">
+                      <label class="form-check-label" for="accessories-filter">
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                      </label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxRateChange(5,$event)" class="form-check-input"
+                        id="accessories-filter" value="5">
+                      <label class="form-check-label" for="accessories-filter">
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+                        <i class="far fa-star " style="color: yellow; " data-rating="1"></i>
+  
+                      </label>
+                    </div>
+  
+                  </div>
+  
+                  <hr>
+  
+              
+               <!-- DiscountFilteration -->
+                  <div>
+                    <h3 style="font-weight: bold; font-size: 20px;">Discount</h3>
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxDiscountChange(10,$event)" class="form-check-input"
+                        id="shoes-filter" value="10">
+                      <label class="form-check-label" for="shoes-filter">10%</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxDiscountChange(15,$event)" class="form-check-input"
+                        id="clothing-filter" value="15">
+                      <label class="form-check-label" for="clothing-filter">15%</label>
+                    </div>
+  
+                    <div class="form-check">
+                      <input type="checkbox" (change)=" onCheckboxDiscountChange(20,$event)" class="form-check-input"
+                        id="clothing-filter" value="20">
+                      <label class="form-check-label" for="clothing-filter">20%</label>
+                    </div>
+                  </div>
+                  <hr>
+  
+                  <div class="form-check">
+                    <input type="checkbox" (change)="onCheckboxBluetoothChange($event)" class="form-check-input" id="WaterProof"
+                      value="shoes">
+                    <label class="form-check-label" for="shoes-filter">Has Bluetooth</label>
+                  </div>
+  
+  
+                  <div class="form-check">
+                    <input type="checkbox" (change)="onCheckboxWIFIChange($event)" class="form-check-input" id="WaterProof"
+                      value="shoes">
+                    <label class="form-check-label" for="shoes-filter">Has WIFI</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input type="checkbox" (change)="onCheckboxCurveChange($event)" class="form-check-input" id="WaterProof"
+                      value="shoes">
+                    <label class="form-check-label" for="shoes-filter">Curved TV</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input type="checkbox" (change)="onCheckbox3DChange($event)" class="form-check-input" id="WaterProof"
+                      value="shoes">
+                    <label class="form-check-label" for="shoes-filter">3D</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input type="checkbox" (change)="onCheckboxSmartChange($event)" class="form-check-input" id="WaterProof"
+                      value="shoes">
+                    <label class="form-check-label" for="shoes-filter">Smart</label>
+                  </div> 
+  
+  
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="col-8">
+  
+  
+              <section class="bg-color" id="Mobile">
+                <div class="containers">
+  
+                  <div class="row">
+                    <div class="col-md-4" *ngFor="let Mobile of filteredTVsList">
+                      <div class="card">
+                        <a [routerLink]="['/product-details/Mobile',Mobile.mainProductId]">
+                          <div class="card-main">
+                            <!-- <div class="discount">%</div> -->
+                            <div class="label label-green">Pre-order</div>
+                            <div class="product-container">
+                              <div class="p" (mouseover)="imageChange($event)"><img src="assets/img/1.jpg" alt="Product">
+                              </div>
+                              <div class="p" (mouseover)="imageChange($event)"><img src="assets/img/1.jpg" alt="Product">
+                              </div>
+                              <div class="p" (mouseover)="imageChange($event)"><img src="assets/img/1.jpg" alt="Product">
+                              </div>
+                            </div>
+                            <div class="image">
+                              <img src="assets/img/1.jpg" alt="Product"
+                                class="card-img-top shadow p-3 mb-5 bg-white rounded">
+                            </div>
+  
+                            <div class="">
+                              <h3 class="text-center ">
+  
+                              </h3>
+                            </div>
+                            <div class="cart-line"></div>
+                            <div class="cart-item">
+                              <ul>
+  
+                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                                <li><a href=""><i class="fa fa-search"></i></a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </a>
+                        <div class="content">
+                          <a href="javascript:void(0);">Incidid Tongue Bar</a>
+                          <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                          </div>
+                          <div>
+                            <p><span class="money">{{Mobile.mainProduct.name}}</span><span class="price-old"></span></p>
+                          </div>
+                          <div *ngIf="Mobile.mainProduct.priceAfterDiscount==null">
+                            <p><span class="money"></span></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                  </div>
+                </div>
+              </section>
+  
+  
+            </div>
+          </div>
+        </div>
+      </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    </div>
+  </div>
+  
+  
+  
+  
+ 
+  <section class="bg-color" id="Mobile">
+      <div class="containers">
+          <div class="title">
+              <p>The Best Seller Of Hitheme</p>
+              <h2><span>Best</span> Seller</h2>
+          </div>
+          <div class="row">
+              <div class="col-md-3" *ngFor="let Mobile of filteredTVsList" >
+                  <div class="card">
+                     <a routerLink="mobile">
+                      <div class="card-main"> 
+   <div class="discount">%</div> 
+  <div class="label label-green">Pre-order</div>
+                        <div class="product-container">
+                            <div class="p" (mouseover)="imageChange($event)"><img src="assets/img/1.jpg"
+                                    alt="Product"></div>
+                            <div class="p" (mouseover)="imageChange($event)"><img src="assets/img/1.jpg"
+                                    alt="Product"></div>
+                            <div class="p" (mouseover)="imageChange($event)"><img src="assets/img/1.jpg"
+                                    alt="Product"></div>
+                        </div>
+                        <div class="image">
+                            <img src="assets/img/1.jpg" alt="Product" class="card-img-top shadow p-3 mb-5 bg-white rounded">
+                        </div>
+    
+                      <div class="">
+                        <h3 class="text-center ">
+                       
+                      </h3>
+                      </div>
+                        <div class="cart-line"></div>
+                        <div class="cart-item">
+                            <ul>
+                                
+                                <li><a href=""><i class="fa fa-shopping-basket"></i></a></li>
+                                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                                <li><a href=""><i class="fa fa-search"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     </a>
+                      <div class="content">
+                          <a href="javascript:void(0);">Incidid Tongue Bar</a>
+                          <div class="rating">
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                              <i class="fa fa-star-o"></i>
+                          </div>
+                          <div *ngIf="Mobile.mainProduct.priceAfterDiscount!=null">
+                          <p><span class="money">${{Mobile.mainProduct.priceAfterDiscount}}</span><span class="price-old">${{Mobile.mainProduct.price}}</span></p>
+                        </div>
+                        <div *ngIf="Mobile.mainProduct.priceAfterDiscount==null">
+                          <p><span class="money">${{Mobile.mainProduct.price}}</span></p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            
+          </div>
+      </div> 
+    </section>
