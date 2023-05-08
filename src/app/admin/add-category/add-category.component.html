@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+      <form class="form" [formGroup]="RegisterForm" (ngSubmit)="submitData()">
+        <div class="form-group my-4">
+          <label class="form-label boolder">ADD Category Name</label><br>
+          <input class="form-control" [class.is-invalid]="CategoryName?.invalid && CategoryName?.touched" formControlName="CategoryName" type="text">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Register">
+      </form>
+    </div>
+  </div>
+  

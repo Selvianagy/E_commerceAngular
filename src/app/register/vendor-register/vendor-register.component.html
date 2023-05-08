@@ -1,0 +1,208 @@
+
+<section >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                  alt="Sample photo" class="img-fluid"
+                  style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height: 100%;" />
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase">Vendor registration form</h3>
+                  <form class="mx-1 mx-md-4" [formGroup]="VendorRegisterForm" (ngSubmit)="registerData()" >
+
+                    <div class="form-outline mb-4">
+                      <input [class.is-invalid]="Username?.invalid &&Username?.touched"
+                       type="text" id="form3Example1c" class="form-control"  name="UserName" formControlName="UserName"/>
+                      <label class="form-label" for="form3Example1c">UserName</label>     
+                      <div *ngIf="Username?.errors&&Username?.touched">
+                        <small *ngIf="Username?.errors?.['required']">UserName is required</small>
+                        <small *ngIf="Username?.errors?.['pattern']">UserName must be only Characters</small>
+                      </div>                 
+                    </div>
+                 
+                    <div class="form-outline mb-4">
+                      <input [class.is-invalid]="Email?.invalid&&Email?.touched" formControlName="Email"
+                       name="Email" type="email" id="form3Example3c" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <div *ngIf="Email?.errors&&Email?.touched">
+                        <small *ngIf="Email?.errors?.['required']">Email is required</small>
+                        <small *ngIf="Email?.errors?.['pattern']">Email must contains @ and . in the format (aaa@bb.com)</small>
+                      </div>
+                    </div>
+                  
+                    <div class="form-outline mb-4">
+                      <input [class.is-invalid]="Password?.invalid&&Password?.touched" formControlName="Password" 
+                       type="password" name="Password" id="form3Example4c" class="form-control"/>
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <div *ngIf="Password?.errors&&Password?.touched">
+                        <small *ngIf="Password?.errors?.['required']">Password is required</small>
+                      </div>
+                    </div>
+
+                  
+                    <div class="form-outline  mb-4">
+                      <input [class.is-invalid]="Confirmpassword?.invalid&&Confirmpassword?.touched" 
+                      formControlName="ConfirmPassword"
+                       type="password" id="form3Example4cd" class="form-control" name="ConfirmPassword"/>
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <div *ngIf="Confirmpassword?.errors&&Confirmpassword?.touched">
+                        <small *ngIf="Confirmpassword?.errors?.['required']">Confirm Password is required</small>
+                      </div><br/>
+                      <small *ngIf="VendorRegisterForm?.errors?.['mismatch']">Password and confirm password not match</small>
+                    </div>
+                  
+                    <div class="form-outline mb-4">
+                      <input [class.is-invalid]="PhoneNumber?.invalid&&PhoneNumber?.touched" 
+                      formControlName="PhoneNumber"
+                       type="text" id="form3Example4cd" class="form-control" name="PhoneNumber"/>
+                      <label class="form-label" for="form3Example4cd">Phone Number</label>
+                      <div *ngIf="PhoneNumber?.errors&&PhoneNumber?.touched">
+                        <small *ngIf="PhoneNumber?.errors?.['required']">PhonNumber is required</small>
+                        <small *ngIf="PhoneNumber?.errors?.['pattern']">PhonNumber must be only Numbers</small>
+                        <!-- <small *ngIf="PhoneNumber?.errors?.['maxLength']||PhoneNumber?.errors?.['minLength']">PhonNumber must be 11 Numbers</small> -->
+                      </div>
+                    </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="form3Example1m1" class="form-control form-control-lg" 
+                        [class.is-invalid]="Country?.invalid&&Country?.touched" 
+                      formControlName="Country" name="Country"/>
+                        <label class="form-label" for="form3Example1m1">Country</label>
+                        <div *ngIf="Country?.errors&&Country?.touched">
+                            <small *ngIf="Country?.errors?.['required']">Country is required</small>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" 
+                        [class.is-invalid]="City?.invalid&&City?.touched" 
+                      formControlName="City" name="City"/>
+                        <label class="form-label" for="form3Example1n1">City</label>
+                        <div *ngIf="City?.errors&&City?.touched">
+                            <small *ngIf="City?.errors?.['required']">City is required</small>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+  
+                    <h4 class="mb-0 me-4">Gender: </h4>
+  
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input class="form-check-input" type="radio" name="Gender" id="femaleGender"
+                        value="Female" [class.is-invalid]="Gender?.invalid&&Gender?.touched" 
+                        formControlName="Gender" name="Gender"/>
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input class="form-check-input" type="radio" name="Gender" id="maleGender"
+                        value="Male" [class.is-invalid]="Gender?.invalid&&Gender?.touched" 
+                        formControlName="Gender" name="Gender"/>
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+                    <div *ngIf="Gender?.errors&&Gender?.touched">
+                        <small *ngIf="Gender?.errors?.['required']">Gender is required</small>
+                      </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="file" class="form-control"  id="formFile" name="VendorImage"
+                    [class.is-invalid]="VendorImage?.invalid&&VendorImage?.touched" 
+                    formControlName="VendorImage">
+                    <label for="formFile" class="form-label" >Vendor Image</label> 
+                    <div *ngIf="VendorImage?.errors&&VendorImage?.touched">
+                      <small *ngIf="VendorImage?.errors?.['required']">Vendor Image is required</small>
+                    </div>
+                  </div>
+
+                  <h2>Store Info</h2>
+
+                  <div class="form-outline mb-4">
+                    <input [class.is-invalid]="StoreName?.invalid&&StoreName?.touched" 
+                    formControlName="StoreName"
+                     type="text" id="form3Example4cd" class="form-control" name="StoreName"/>
+                    <label class="form-label" for="form3Example4cd">Store Name</label>
+                    <div *ngIf="StoreName?.errors&&StoreName?.touched">
+                      <small *ngIf="StoreName?.errors?.['required']">Store Name is required</small>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input [class.is-invalid]="StoreAddress?.invalid&&StoreAddress?.touched" 
+                    formControlName="StoreAddress"
+                     type="text" id="form3Example4cd" class="form-control" name="StoreAddress"/>
+                    <label class="form-label" for="form3Example4cd">Store Address</label>
+                    <div *ngIf="StoreAddress?.errors&&StoreAddress?.touched">
+                      <small *ngIf="StoreAddress?.errors?.['required']">Store Address is required</small>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                     <textarea class="form-control" [class.is-invalid]="StoreDescription?.invalid&&StoreDescription?.touched" 
+                     formControlName="StoreDescription" name="StoreDescription"
+                     ></textarea>
+                    <label class="form-label" for="form3Example4cd">Store Description</label>
+                    <div *ngIf="StoreDescription?.errors&&StoreDescription?.touched">
+                      <small *ngIf="StoreDescription?.errors?.['required']">Store Description is required</small>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <select  formControlName="StoreSpecialty" class="form-select" id="form3Example4cd" 
+                      name="StoreSpecialty" [class.is-invalid]="StoreSpecialty?.invalid&&StoreSpecialty?.touched">
+                        <option value=0 >Mobiles</option>
+                        <option value=1>Computers</option>
+                        <option value=3>TVandElectronics</option>
+                        <option value=4>Fashion</option>
+                        <option value=5>Books</option>
+                      </select>
+                      <label class="form-label" for="form3Example4cd">Store Specialty</label>
+                      <div *ngIf="StoreSpecialty?.errors&&StoreSpecialty?.touched">
+                        <small *ngIf="StoreSpecialty?.errors?.['required']">Store Specialty is required</small>
+                      </div>
+                </div>
+
+              <div class="form-outline mb-4">
+                <select  formControlName="Categoryid" class="form-select" id="form3Example4cd"   name="Categoryid" 
+                [class.is-invalid]="Categoryid?.invalid&&Categoryid?.touched">
+                <option value="{{category.id}}" *ngFor="let category of Categories">{{category.name}}</option>
+
+                  </select>
+                  <label class="form-label" for="form3Example4cd">Category</label>
+                  <div *ngIf="Categoryid?.errors&&Categoryid?.touched">
+                    <small *ngIf="Categoryid?.errors?.['required']">where you hear about us is required</small>
+                  </div>
+               </div>
+
+               <div class="form-outline mb-4">
+                <input type="file" class="form-control"  id="formFile" name="StoreImage"
+                [class.is-invalid]="StoreImage?.invalid&&StoreImage?.touched" 
+                formControlName="StoreImage">
+                <label for="formFile" class="form-label" >Store Image</label> 
+                <div *ngIf="StoreImage?.errors&&StoreImage?.touched">
+                  <small *ngIf="StoreImage?.errors?.['required']">Store Image is required</small>
+                </div>
+              </div>
+              
+                  <div class="d-flex justify-content-end pt-3">
+                    <button type="submit" [disabled]="VendorRegisterForm.invalid" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

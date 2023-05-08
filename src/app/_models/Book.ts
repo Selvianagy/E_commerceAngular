@@ -1,0 +1,25 @@
+export interface Book
+{
+  Id:number;
+  Name:string;
+  BrandName:string;
+  Description:string;
+  Price:number;
+  PriceAfterDiscount:number;
+  Images:File[];
+  Quantity:number;
+  RateValue:number;
+  BrandId:number;
+  CategoryId:number;
+  StoreId:number;
+  Weight:number;
+  PublicationYear:Date;
+  PageCount:number;
+  AuthorName:string;
+  BookDescription:string;
+  Publisher:string;
+  Language:string;
+  Edition:string;
+  Type:string;
+  Awards:string;
+}

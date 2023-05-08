@@ -1,0 +1,236 @@
+<p>new-vendor-notifications works!</p>
+<div class="row">
+  <!-- <div class="col" *ngFor="let notify of NotificationList">
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem">
+      <img src={{notify.Image}} class="card-img-top" alt="...">
+      <h2 class="card-header fs-4 fw-bolder">{{notify.VendorName}} with Email: {{notify.Email}}</h2>
+      <div class="card-body">
+        <h5 class="card-title">Store Name :{{notify.StoreName}} and PhoneNum:{{notify.PhoneNumber}}</h5>
+        <p class="card-text">{{notify.StoreDescription}}</p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  <div class="card mx-1" style="width: 18rem;" *ngFor="let notify of NotificationList" id={{notify.Id}}>
+    <img src="{{notify.Image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title ">VendorName: <span class="text-dark fs-5 fw-bolder">{{notify.VendorName}}</span></h5>
+      <p class="card-text">Store Name :<span class="text-dark fs-5 fw-bolder">{{notify.StoreName}}</span></p>
+      <button class="btn btn-primary" (click)="GoToConfirmationNotification(notify.Id)">Details..</button>
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+

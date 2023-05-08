@@ -1,0 +1,124 @@
+<section  style="margin-top: 30px;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="RegisterForm" (ngSubmit)="registerData()" >
+               
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+
+                    <div class="form-outline flex-fill mb-0">
+                      <input [class.is-invalid]="Username?.invalid &&Username?.touched"
+                       type="text" id="form3Example1c" class="form-control"  name="UserName" formControlName="UserName"/>
+                      <label class="form-label" for="form3Example1c">UserName</label>     
+                      <div *ngIf="Username?.errors&&Username?.touched">
+                        <small *ngIf="Username?.errors?.['required']">UserName is required</small>
+                        <small *ngIf="Username?.errors?.['pattern']">UserName must be only Characters</small>
+                      </div>                 
+                    </div>
+                  </div>
+                 
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input [class.is-invalid]="Email?.invalid&&Email?.touched" formControlName="Email"
+                       name="Email" type="email" id="form3Example3c" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <div *ngIf="Email?.errors&&Email?.touched">
+                        <small *ngIf="Email?.errors?.['required']">Email is required</small>
+                        <small *ngIf="Email?.errors?.['pattern']">Email must contains @ and . in the format (aaa@bb.com)</small>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input [class.is-invalid]="Password?.invalid&&Password?.touched" formControlName="Password" 
+                       type="password" name="Password" id="form3Example4c" class="form-control"/>
+                      <label class="form-label" for="form3Example4c">Password</label>
+                      <div *ngIf="Password?.errors&&Password?.touched">
+                        <small *ngIf="Password?.errors?.['required']">Password is required</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input [class.is-invalid]="Confirmpassword?.invalid&&Confirmpassword?.touched" 
+                      formControlName="ConfirmPassword"
+                       type="password" id="form3Example4cd" class="form-control" name="ConfirmPassword"/>
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <div *ngIf="Confirmpassword?.errors&&Confirmpassword?.touched">
+                        <small *ngIf="Confirmpassword?.errors?.['required']">Confirm Password is required</small>
+                      </div><br/>
+                      <small *ngIf="RegisterForm?.errors?.['mismatch']">Password and confirm password not match</small>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input [class.is-invalid]="PhoneNumber?.invalid&&PhoneNumber?.touched" 
+                      formControlName="PhoneNumber"
+                       type="text" id="form3Example4cd" class="form-control" name="PhoneNumber"/>
+                      <label class="form-label" for="form3Example4cd">Phone Number</label>
+                      <div *ngIf="PhoneNumber?.errors&&PhoneNumber?.touched">
+                        <small *ngIf="PhoneNumber?.errors?.['required']">PhonNumber is required</small>
+                        <small *ngIf="PhoneNumber?.errors?.['pattern']">PhonNumber must be only Numbers</small>
+                        <!-- <small *ngIf="PhoneNumber?.errors?.['maxLength']||PhoneNumber?.errors?.['minLength']">PhonNumber must be 11 Numbers</small> -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="file" class="form-control file-upload"  id="formFile" name="Image"
+                      [class.is-invalid]="Image?.invalid&&Image?.touched" 
+                      formControlName="Image" (change)="imageuplud($event)" >
+
+                      <label for="formFile" class="form-label" >User Image</label> 
+                      <div *ngIf="Image?.errors&&Image?.touched">
+                        <small *ngIf="Image?.errors?.['required']">Image is required</small>
+                      </div>
+                    </div>
+                  </div>
+               
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" name="Check" />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" [disabled]="RegisterForm.invalid" class="btn btn-primary btn-lg">Register</button>
+                  </div>
+
+                  <p class="small fw-bold mt-2 pt-1 mb-0">Register as Vendor? <a href="vendorregister"
+                    class="link-danger">Register</a></p>
+                </form>
+              </div>
+              <img [src]='bty'>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

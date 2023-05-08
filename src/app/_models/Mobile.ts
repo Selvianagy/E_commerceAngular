@@ -1,0 +1,31 @@
+export interface Mobile
+{
+  Id:number;
+  Name:string;
+  BrandName:string;
+  Description:string;
+  Price:number;
+  PriceAfterDiscount:number;
+  Images:File[];
+  ScreenSize:number;
+  RAM:number;
+  NumSIMCards:number;
+  BatteryLife:number;
+  StorageCapacity:number;
+  Weight:number;
+  HasFingerprintScanner:boolean;
+  NumberOfCamera:number;
+  HasFrontCamera:boolean;
+  HasBackCamera:boolean;
+  HasNFC:boolean;
+  HasBluetooth:boolean;
+  IsWaterproof:boolean;
+  OperatingSystem:string;
+  Screentype:number;
+  Quantity:number;
+  RateValue:number;
+  BrandId:number;
+  CategoryId:number;
+  StoreId:number; 
+
+}

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col">
+    <div class="card mx-1" style="width: 18rem;" *ngFor="let store of Stores" id={{store.Id}}>
+      <img src="{{store.Image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title ">StoreName: <span class="text-dark fs-5 fw-bolder">{{store.Name}}</span></h5>
+        <h5 class="card-title ">StoreName: <span class="text-dark fs-5 fw-bolder">{{store.Specialty}}</span></h5>
+        <p class="card-text">Store Description :<span class="text-dark fs-5 fw-bolder">{{store.Description}}</span></p>
+        <p class="card-text">Store Address:<span class="text-dark fs-5 fw-bolder">{{store.Country}}-{{store.City}}-{{store.Street}}</span></p>
+        <button class="btn btn-primary" (click)="Edite(store.Id)">Details..</button>
+        <button class="btn btn-primary" (click)="Delete(store.Id)">Details..</button>
+      </div>
+    </div>
+  </div>
+</div>

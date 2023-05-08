@@ -1,0 +1,21 @@
+
+
+<div class="container">
+  <div class="row">
+    <form class="form" [formGroup]="BrandForm" (ngSubmit)="submitData()">
+      <div class="form-group my-4">
+        <label class="form-label boolder">ADD Brand Name</label><br>
+        <input class="form-control" [class.is-invalid]="BrandName?.invalid && BrandName?.touched" formControlName="BrandName" type="text">
+      </div>
+
+      <div class="form-group my-4">
+        <select class="form-select" aria-label="Default select example" formControlName="selectedCategoryId" >
+          <option *ngFor="let Category of Categories" [value]="Category.id">{{ Category.name }}</option>
+        </select>
+      </div>
+      
+      <input type="submit" class="btn btn-primary" value="Register">
+    </form>
+  </div>
+</div>
+
