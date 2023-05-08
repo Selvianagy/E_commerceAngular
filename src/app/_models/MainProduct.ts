@@ -3,4 +3,5 @@ export interface IMainProduct{
     price:number
     priceAfterDiscount:number
     description:string
+    brandName:string
 }

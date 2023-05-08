@@ -5,6 +5,6 @@ export interface IWishlist{
     id :number  ,
     product_Quantity:number,
     mainProductId :number,
-    customerId :string,
+    customerId :string|null,
     mainProduct:IMainProduct,
 }

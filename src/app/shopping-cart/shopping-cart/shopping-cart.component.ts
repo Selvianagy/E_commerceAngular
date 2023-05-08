@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICartItem } from 'src/app/_models/CartItem';
+import { IWishlist } from 'src/app/_models/WishList';
 import { ShoppingcartService } from 'src/app/_services/cart.service';
+import { WishlistService } from 'src/app/_services/wishlist.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,7 +17,8 @@ export class ShoppingCartComponent {
    UserId:string|null=localStorage.getItem('userid')
    errorMessage:string=""
    totalprice:number=0
-  constructor(private shoppcart:ShoppingcartService,private router:Router){
+   WishItem:IWishlist={} as IWishlist
+  constructor(private shoppcart:ShoppingcartService,private router:Router ,private wishservice:WishlistService){
     
   }
 
@@ -69,4 +72,34 @@ export class ShoppingCartComponent {
       this.totalprice+=value.mainProduct.priceAfterDiscount*value.product_Quantity
  });
   }
+
+
+  AddWishlist(id:any,quantity:any){
+    this.CartItemlist.forEach( (value) => {
+      if(value.id==id){
+        this.WishItem.product_Quantity=value.product_Quantity
+        this.WishItem.mainProductId=value.mainProductId
+        this.WishItem.customerId=this.UserId
+      }
+  });
+  this.wishservice.AddWishItem(this.WishItem).subscribe({
+    next:data=>{
+      this.CartItemlist.forEach( (value) => {
+        if(value.id==id){
+          const index = this.CartItemlist.indexOf(value);
+          if (index !== -1) {
+            this.CartItemlist.splice(index, 1);
+          }
+        }
+        this.numberofcart=this.CartItemlist.length
+  });
+  
+  this.shoppcart.DeleteCartItem(id).subscribe({
+    next:data=>console.log(data),
+    error:err=>this.errorMessage=err
+  })
+    },
+    error:err=>this.errorMessage=err
+   })
+   }
 }

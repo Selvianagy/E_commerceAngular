@@ -36,7 +36,7 @@
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
+                                <button class="btn btn-white border-secondary bg-white btn-md mb-2" (click)="AddWishlist(cart.id,quantity.value)">
                                     <i class="fas fa-heart"></i>
                                 </button>
                                 <button class="btn btn-white border-secondary bg-white btn-md mb-2" (click)="DeleteCartItem(cart.id)">

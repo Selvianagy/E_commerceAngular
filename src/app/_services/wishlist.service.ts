@@ -32,17 +32,27 @@ export class WishlistService {
     }));
   }
   DeleteWishItems(id:number){
-      this.i=this.i-1
-      localStorage['wishitemslength']=this.i
-      console.log("withlistlenth "+localStorage.getItem('wishitemslength'))
-      this.wishlist.next(this.i)
-    
+    this.i=this.i-1
+    console.log(this.i)
+    localStorage['wishitemslength']=this.i
+    this.wishlist.next(this.i)
+
     let params = new HttpParams().set('wishId', id);
 
     return this.httpClient.delete(`${this.baseurl}/DeleteWishCart`,{params: params}).pipe(catchError((err)=>{
       return throwError(()=>err.message ||"server error");
     }));
   }
+
+  AddWishItem(Wichitem:IWishlist){
+    this.i=this.i+1
+      console.log(this.i)
+      localStorage['wishitemslength']=this.i
+      this.wishlist.next(this.i)
+    
+  return this.httpClient.post(`${this.baseurl}/AddWishlist`,Wichitem );
+  
+}
 
  
   get isUserLogged(): boolean

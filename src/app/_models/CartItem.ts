@@ -7,6 +7,6 @@ export interface ICartItem{
      mainProductId :number,
     shoppingCartId :number,
      mainProduct:IMainProduct,
-      customerId:string
+      customerId:string|null
 
 }

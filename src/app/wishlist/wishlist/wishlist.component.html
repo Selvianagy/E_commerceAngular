@@ -26,13 +26,13 @@
                                 </div>
                                 <div class="col-md-9 text-left mt-sm-2">
                                     <h4>{{cart.mainProduct.name}}</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
+                                    <p class="font-weight-light">{{cart.mainProduct.brandName}}</p>
                                 </div>
                             </div>
                         </td>
                         <td data-th="Price">${{cart.mainProduct.priceAfterDiscount|number}}</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value={{cart.product_Quantity}}>
+                            <input type="number" class="form-control form-control-lg text-center" readonly value={{cart.product_Quantity}}>
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right" style="padding-left: 37px;" >

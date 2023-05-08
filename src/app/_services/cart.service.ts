@@ -36,14 +36,11 @@ export class ShoppingcartService {
   }
 
   DeleteCartItem(id:number){
-    if(this.i!=0){
     this.i=this.i-1
     console.log(this.i)
     localStorage['cartitemslength']=this.i
     this.cartitems.next(this.i)
-    }else if(this.i==0){
-      this.cartitems.next(0)
-    }
+    
     let params = new HttpParams().set('cartId', id);
 
     return this.httpClient.delete(`${this.baseurl}/DeleteCartItem`,{params: params}).pipe(catchError((err)=>{
@@ -52,14 +49,11 @@ export class ShoppingcartService {
   }
 
   AddCartItem(cartItem:ICartItem){
-    if(this.i!=0){
       this.i=this.i+1
       console.log(this.i)
       localStorage['cartitemslength']=this.i
       this.cartitems.next(this.i)
-      }else if(this.i==0){
-        this.cartitems.next(0)
-      }
+      
     return this.httpClient.post(`${this.baseurl}/AddCardItem`, cartItem);
     
   }
